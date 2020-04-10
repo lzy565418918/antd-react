@@ -4,14 +4,14 @@ export default class Proxy extends Component{
     constructor() {
         super()
         this.state = {
-            html:undefined
+            data: []
         }
     }
     componentDidMount() {
         fetch('/api/FingerUnion/data.json')
-            .then(res => res.text())
+            .then(res => res.json())
             .then(res => {
-            this.setState({html:res})
+            this.setState({data:res.splice(0,5)})
         })
     }
     
@@ -19,6 +19,13 @@ export default class Proxy extends Component{
         return (
             <div>
                 <p>跨域问题</p>
+                <ul>
+                    {
+                        this.state.data.map((item, index) => (
+                            <li key={index}>{item.title}</li>
+                        ))
+                    }
+                </ul>
             </div>
         )
     }
