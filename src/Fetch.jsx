@@ -22,13 +22,19 @@ export default class Fetch extends Component{
     render() {
         let { labels } = this.state
         return (
-            <ul>
+            <div>
                 {
-                    labels.map((item, index) => (
-                        <li key={index}>{item}</li>
-                    ))
+                    labels.length>0?
+                    <ul>
+                        {
+                            labels.map((item, index) => (
+                                <li key={index}>{item}</li>
+                            ))
+                        }
+                    </ul>
+                    :<div>加载中。。。</div>
                 }
-            </ul>
+            </div>
         )
     }
 }

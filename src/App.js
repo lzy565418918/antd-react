@@ -3,12 +3,15 @@ import React, { Component } from 'react';
 import Uicomp from './Uicomp'
 // fetch请求
 import Fetch from './Fetch';
+// 跨域请求
+import Proxy from './Proxy';
 class App extends Component{
   render() {
     return (
       <div className="App">
         <Uicomp />
-        <Fetch/>
+        <Fetch />
+        <Proxy/>
       </div>
     );
   }
